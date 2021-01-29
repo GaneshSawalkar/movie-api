@@ -8,7 +8,7 @@ jar.setCookie(request.cookie("__cfduid=dd487ea2fb4795217273a57cbe65d989816118444
 
 app.post("/movies/search/movie", async (req, res) => {
     var search = ""
-    if (req.body != undefined) {
+    if (req.body.s) {
         search = req.body.s
     } else {
         search = ""
@@ -21,7 +21,7 @@ app.post("/movies/search/movie", async (req, res) => {
         jar: "JAR"
     }
 
-     request(options, function (error, response, body) {
+    request(options, function (error, response, body) {
         if (error) throw new Error(error)
         var abc = JSON.parse(body)
         if (abc.Error == "Incorrect IMDb ID.") {

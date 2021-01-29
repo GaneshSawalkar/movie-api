@@ -8,7 +8,7 @@ jar.setCookie(request.cookie("__cfduid=dd487ea2fb4795217273a57cbe65d989816118444
 
 app.post("/movies/search/movie", async (req, res) => {
     var search = ""
-    if (req.body.s) {
+    if (req.body != undefined) {
         search = req.body.s
     } else {
         search = ""
